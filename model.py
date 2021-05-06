@@ -9,6 +9,13 @@ class Image(BaseModel):
 
 class Product(BaseModel):
     uid: str  # unique id to identify product
+    images: list
+    gender: str
+    url: str
+    price: float
+    size: str
+    category: str
+    description: str
     # TODO, add the rest of Product information like: gender, images, product url and etc
     # images: List[Image]
     

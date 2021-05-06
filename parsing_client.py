@@ -13,6 +13,13 @@ class ClientParser:
             int, number of products
 
         """
+        root = self.tree.getroot()
+        number_of_poducts = 0
+        for child in root:
+            number_of_poducts += 1
+        return number_of_poducts
+
+
         raise NotImplementedError
 
     def __getitem__(self, idx):
@@ -42,8 +49,9 @@ class ClientAParser(ClientParser):
             raise NotImplementedError
 
     def __len__(self):
+        return super().__len__()
         #TODO, implement "how to get number of products"
-        pass
+
 
     def __getitem__(self, idx):
         #TODO, implement the parsing product at `idx`
@@ -64,7 +72,8 @@ if __name__ == '__main__':
 
     xml_filename = 'feed.gz'
     parser = ClientAParser(xml_filename)
-
+    
+    
     tic = time.time()
     # optimize and speed up the whole xml parsing
     # you could use threading, multi processing and etc
